@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pengaturan Profil</title>
+    <link rel="stylesheet" href="src/dashboard/dashboard.css">
+</head>
+<body>
+    <div class="container" style="max-width: 500px;">
+        <div class="top-nav">
+            <a href="src/dashboard/dashboard.html" style="text-decoration:none; color:#1e293b; font-weight:700;">← Kembali ke Dashboard</a>
+        </div>
+
+        <div class="box" style="margin-top: 1rem;">
+            <h3 class="box-title">✏️ Sunting Informasi Profil</h3>
+            <form id="formSettings">
+                <label style="font-size:0.8rem; color:#64748b; display:block; margin-bottom:0.25rem;">Nama Lengkap Kreator</label>
+                <input type="text" id="setNama" required class="input-style">
+
+                <label style="font-size:0.8rem; color:#64748b; display:block; margin-bottom:0.25rem;">Deskripsi Bio</label>
+                <textarea id="setBio" required class="input-style" style="height:100px; resize:none;"></textarea>
+
+                <button type="submit" class="btn-add">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('user_sedang_login');
+            if (!username) { window.location.href = 'src/login/login.html'; return; }
+
+            let userObj = JSON.parse(localStorage.getItem(username));
+
+            document.getElementById('setNama').value = userObj.nama;
+            document.getElementById('setBio').value = userObj.bio;
+
+            document.getElementById('formSettings').addEventListener('submit', (e) => {
+                e.preventDefault();
+                userObj.nama = document.getElementById('setNama').value.trim();
+                userObj.bio = document.getElementById('setBio').value.trim();
+
+                localStorage.setItem(username, JSON.stringify(userObj));
+                alert('Profil berhasil diperbarui!');
+                window.location.href = 'src/dashboard/dashboard.html';
+            });
+        });
+    </script>
+</body>
+</html>

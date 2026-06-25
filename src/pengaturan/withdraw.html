@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Tarik Saldo</title>
+    <link rel="stylesheet" href="src/dashboard/dashboard.css">
+</head>
+<body>
+    <div class="container" style="max-width: 500px;">
+        <div class="top-nav">
+            <a href="src/dashboard/dashboard.html" style="text-decoration:none; color:#1e293b; font-weight:700;">← Kembali ke Dashboard</a>
+        </div>
+
+        <div class="saldo-card" style="background: #1e293b; margin-top: 1rem;">
+            <div>
+                <p>Saldo yang Bisa Ditarik</p>
+                <h2 id="txtSaldoWD">Rp 0</h2>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3 class="box-title">Formulir Pencairan Dana</h3>
+            <form id="formWithdraw">
+                <label style="font-size:0.8rem; color:#64748b; display:block; margin-bottom:0.25rem;">Pilih Bank / E-Wallet</label>
+                <select id="wdBank" class="input-style" required>
+                    <option value="BCA">Bank BCA</option>
+                    <option value="MANDIRI">Bank Mandiri</option>
+                    <option value="BRI">Bank BRI</option>
+                    <option value="DANA">DANA</option>
+                    <option value="GOPAY">GoPay</option>
+                </select>
+
+                <label style="font-size:0.8rem; color:#64748b; display:block; margin-bottom:0.25rem;">Nomor Rekening / HP Akun</label>
+                <input type="text" id="wdRekening" placeholder="Contoh: 5220391xxx" required class="input-style">
+
+                <label style="font-size:0.8rem; color:#64748b; display:block; margin-bottom:0.25rem;">Nominal Penarikan (Min Rp 20.000)</label>
+                <input type="number" id="wdJumlah" placeholder="Masukkan jumlah uang" min="20000" required class="input-style">
+
+                <button type="submit" class="btn-add" style="background:#f59e0b;">Ajukan Penarikan</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('user_sedang_login');
+            if (!username) { window.location.href = 'src/login/login.html'; return; }
+
+            let userObj = JSON.parse(localStorage.getItem(username));
+            const txtSaldo = document.getElementById('txtSaldoWD');
+
+            txtSaldo.innerText = `Rp ${userObj.saldo.toLocaleString('id-ID')}`;
+
+            document.getElementById('formWithdraw').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const jumlahWd = parseInt(document.getElementById('wdJumlah').value);
+                const bank = document.getElementById('wdBank').value;
+                const norek = document.getElementById('wdRekening').value;
+
+                if (jumlahWd > userObj.saldo) {
+                    alert('Saldo Anda tidak mencukupi untuk melakukan penarikan sebesar nominal ini!');
+                    return;
+                }
+
+                userObj.saldo -= jumlahWd;
+                localStorage.setItem(username, JSON.stringify(userObj));
+
+                alert(`Pengajuan Withdraw Berhasil!\nUang sejumlah Rp ${jumlahWd.toLocaleString('id-ID')} sedang diproses ke rekening ${bank} (${norek}).`);
+                window.location.reload();
+            });
+        });
+    </script>
+</body>
+</html>
