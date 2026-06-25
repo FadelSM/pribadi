@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Tarik Saldo</title>
-    <link rel="stylesheet" href="src/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
 </head>
 <body>
     <div class="container" style="max-width: 500px;">
         <div class="top-nav">
-            <a href="src/dashboard/dashboard.html" style="text-decoration:none; color:#1e293b; font-weight:700;">← Kembali ke Dashboard</a>
+            <a href="../dashboard/dashboard.html" style="text-decoration:none; color:#1e293b; font-weight:700;">← Kembali ke Dashboard</a>
         </div>
 
         <div class="saldo-card" style="background: #1e293b; margin-top: 1rem;">
@@ -45,7 +45,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const username = localStorage.getItem('user_sedang_login');
-            if (!username) { window.location.href = 'src/login/login.html'; return; }
+            if (!username) { window.location.href = '../login/login.html'; return; }
 
             let userObj = JSON.parse(localStorage.getItem(username));
             const txtSaldo = document.getElementById('txtSaldoWD');
