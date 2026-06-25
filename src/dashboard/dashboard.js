@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const username = localStorage.getItem('user_sedang_login');
-    if (!username) { window.location.href = 'src/login/login.html'; return; }
+    if (!username) { window.location.href = '../login/login.html'; return; }
 
     let userObj = JSON.parse(localStorage.getItem(username));
 
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('txtSaldo').innerText = `Rp ${userObj.saldo.toLocaleString('id-ID')}`;
 
     document.getElementById('btnLihatProfil').addEventListener('click', () => {
-        window.open(`src/profile/profile.html?user=${username}`, '_blank');
+        window.open(`../profile/profile.html?user=${username}`, '_blank');
     });
 
     document.getElementById('btnKeluar').addEventListener('click', () => {
