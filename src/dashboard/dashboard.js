@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('btnKeluar').addEventListener('click', () => {
         localStorage.removeItem('user_sedang_login');
-        window.location.href = './home.html';
+        window.location.href = '../../home.html';
     });
 
     const renderLinks = () => {
