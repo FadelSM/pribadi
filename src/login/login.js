@@ -14,7 +14,7 @@ btnKeRegister.addEventListener('click', () => { loginForm.classList.add('hidden'
 // 1. PROSES SUBMIT DAFTAR (MEMBUAT KODE ACAK / OTP)
 document.getElementById('formRegistrasi').addEventListener('submit', (e) => {
     e.preventDefault();
-    const username = document.getElementById('regUsername').value.trim().toLowerCase();
+    const username = document.getElementById('regUsername').value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
     const nama = document.getElementById('regNama').value.trim();
     const bio = document.getElementById('regBio').value.trim();
 
@@ -40,7 +40,7 @@ document.getElementById('formOtp').addEventListener('submit', (e) => {
         
         alert('Verifikasi Berhasil! Akun Anda telah aktif.');
         modalOtp.classList.add('hidden');
-        window.location.href = 'src/dashboard/dashboard.html';
+        window.location.href = '../dashboard/dashboard.html';
     } else {
         alert('Kode salah! Periksa kembali angka yang tertera di layar.');
     }
@@ -53,7 +53,7 @@ document.getElementById('formLogin').addEventListener('submit', (e) => {
 
     if (localStorage.getItem(username)) {
         localStorage.setItem('user_sedang_login', username);
-        window.location.href = 'src/dashboard/dashboard.html';
+        window.location.href = '../dashboard/dashboard.html';
     } else {
         alert('Username tidak ditemukan!');
     }
@@ -91,7 +91,7 @@ function handleCredentialResponse(response) {
 
     localStorage.setItem('user_sedang_login', usernameOtomatis);
     alert(`Login Berhasil! Selamat datang, ${namaOtomatis} 👋`);
-    window.location.href = 'src/dashboard/dashboard.html';
+    window.location.href = '../dashboard/dashboard.html';
 }
 
 window.onload = function () {
