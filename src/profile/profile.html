@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SociaBuzz - Profil</title>
+    <link rel="stylesheet" href="src/profile/profile.css">
+</head>
+<body>
+    <div class="profile-card">
+        <div class="avatar">👤</div>
+        <h1 id="pubNama">Kreator</h1>
+        <p id="pubBio" class="bio">Bio Kreator</p>
+
+        <div id="pubLinks" class="link-wrapper"></div>
+        <div class="line"></div>
+
+        <div class="donation-form">
+            <h3>🎁 Kirim Dukungan Finansial</h3>
+            <form id="formDonasi">
+                <input type="text" id="donaturNama" placeholder="Nama Anda" required class="input-style">
+                <input type="number" id="donaturJumlah" min="10000" placeholder="Jumlah Dukungan (Min Rp 10.000)" required class="input-style">
+                <textarea id="donaturPesan" placeholder="Pesan dukungan..." class="input-style text-area"></textarea>
+                <button type="submit" class="btn-submit">Bayar via QRIS AllPay</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalQris" class="modal hidden">
+        <div class="modal-body">
+            <span id="closeModal" class="close-x">&times;</span>
+            <h2>SCAN QRIS ALLPAY</h2>
+            <p class="alert-info">Buka aplikasi e-wallet (Gopay/OVO/Dana) lalu pindai kode QR di bawah ini.</p>
+            
+            <div class="qris-frame">
+                <img src="qrisku.jpg" alt="QRIS AllPay">
+            </div>
+
+            <button id="btnKonfirmasi" class="btn-confirm">Saya Sudah Transfer / Bayar</button>
+        </div>
+    </div>
+    <script src="src/profile/profile.js"></script>
+</body>
+</html>

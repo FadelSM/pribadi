@@ -1,0 +1,21 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: #f1f5f9; display: flex; justify-content: center; padding: 2rem 1rem; }
+.profile-card { background: #fff; width: 100%; max-width: 420px; padding: 2rem; border-radius: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); text-align: center; border: 1px solid #e2e8f0; }
+.avatar { width: 70px; height: 70px; background: #f59e0b; color: #fff; font-size: 2.2rem; line-height: 70px; border-radius: 50%; margin: 0 auto 1rem; }
+.bio { color: #64748b; font-size: 0.9rem; margin: 0.5rem 0 1.5rem; }
+.link-wrapper { display: flex; flex-direction: column; gap: 0.75rem; }
+.pub-link-btn { display: block; width: 100%; padding: 0.85rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; text-decoration: none; color: #1e293b; font-weight: 600; font-size: 0.9rem; transition: 0.2s; text-align: center; }
+.pub-link-btn:hover { background: #f59e0b; color: #fff; border-color: #f59e0b; }
+.line { border-bottom: 1px solid #f1f5f9; margin: 1.5rem 0; }
+.donation-form { text-align: left; }
+.donation-form h3 { font-size: 1rem; color: #1e293b; margin-bottom: 0.75rem; }
+.input-style { width: 100%; padding: 0.75rem; margin-bottom: 0.75rem; border: 1px solid #cbd5e1; border-radius: 12px; font-size: 0.85rem; outline: none; }
+.text-area { height: 70px; resize: none; }
+.btn-submit { width: 100%; padding: 0.85rem; background: #f59e0b; color: #fff; border: none; font-weight: 700; border-radius: 12px; cursor: pointer; }
+.modal { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.6); display:flex; align-items:center; justify-content:center; z-index: 999; }
+.modal-body { background:#fff; padding:2rem; border-radius:24px; max-width:350px; width:90%; text-align:center; position:relative; }
+.close-x { position:absolute; top:1rem; right:1.25rem; font-size:1.5rem; cursor:pointer; color:#64748b; }
+.alert-info { font-size:0.75rem; color:#64748b; margin: 0.5rem 0 1rem; }
+.qris-frame img { width:100%; height: auto; border-radius:12px; border: 1px solid #e2e8f0; }
+.btn-confirm { width:100%; padding:0.8rem; background:#1e293b; color:#fff; border:none; font-weight:600; border-radius:12px; margin-top:1rem; cursor:pointer; }
+.hidden { display: none !important; }
