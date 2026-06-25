@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SociaBuzz Clone - Masuk / Daftar</title>
+    <link rel="stylesheet" href="src/login/login.css">
+    
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <style>
+        .modal { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(15, 23, 42, 0.6); display: flex; 
+            align-items: center; justify-content: center; z-index: 1000; 
+        }
+        .modal-body { 
+            background: #fff; padding: 2rem; border-radius: 24px; 
+            max-width: 360px; width: 90%; text-align: center; 
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); 
+        }
+        .code-display { 
+            background: #f1f5f9; padding: 0.75rem; border-radius: 12px; 
+            font-size: 1.5rem; font-weight: 800; letter-spacing: 0.3rem; 
+            color: #f59e0b; margin: 1rem 0; text-align: center; 
+        }
+        .divider-or { display: flex; align-items: center; text-align: center; color: #94a3b8; font-size: 0.8rem; margin: 1rem 0; }
+        .divider-or::before, .divider-or::after { content: ''; flex: 1; border-bottom: 1px solid #e2e8f0; }
+        .divider-or:not(:empty)::before { margin-right: .5em; }
+        .divider-or:not(:empty)::after { margin-left: .5em; }
+        .google-btn-wrapper { display: flex; justify-content: center; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <a href="home.html" class="logo" style="text-decoration:none;">sociabuzz<span>clone</span></a>
+            <p class="subtitle">Platform Kreator & Donasi QRIS AllPay</p>
+        </div>
+
+        <div id="registerForm">
+            <h2 class="form-title">Buat Akun Kreator</h2>
+            <form id="formRegistrasi">
+                <input type="text" id="regUsername" placeholder="Username unik (cth: budikreatif)" required class="input-field">
+                <input type="text" id="regNama" placeholder="Nama Lengkap" required class="input-field">
+                <input type="text" id="regBio" placeholder="Bio Singkat Kreator" required class="input-field">
+                <button type="submit" class="btn btn-primary">Daftar Halaman</button>
+            </form>
+            <p class="switch-text">Sudah punya akun? <button id="btnKeLogin">Masuk ke Dashboard</button></p>
+        </div>
+
+        <div id="loginForm" class="hidden">
+            <h2 class="form-title">Masuk Dashboard</h2>
+            <form id="formLogin">
+                <input type="text" id="loginUsername" placeholder="Masukkan Username Anda" required class="input-field">
+                <button type="submit" class="btn btn-secondary">Masuk</button>
+            </form>
+
+            <div class="divider-or">atau masuk dengan</div>
+            <div class="google-btn-wrapper">
+                <div id="buttonDiv"></div>
+            </div>
+
+            <p class="switch-text">Belum punya akun? <button id="btnKeRegister">Daftar di sini</button></p>
+        </div>
+    </div>
+
+    <div id="modalOtp" class="modal hidden">
+        <div class="modal-body">
+            <h2 class="form-title">🛡️ Verifikasi Keamanan</h2>
+            <p class="subtitle" style="text-align:center;">Salin kode verifikasi acak di bawah ini untuk mengaktifkan akun Anda:</p>
+            <div id="txtKodeAcak" class="code-display">0000</div>
+            <form id="formOtp">
+                <input type="text" id="inputOtp" placeholder="Masukkan 4 digit kode" maxlength="4" required class="input-field" style="text-align:center; font-size:1.25rem; font-weight:700;">
+                <button type="submit" class="btn btn-primary">Verifikasi & Aktifkan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="src/login/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background-color: #f8fafc; display: flex; align-items: center; justify-content: center; height: 100vh; }
+.card { background: #fff; width: 100%; max-width: 400px; padding: 2rem; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; margin: 0 1rem; }
+.header { text-align: center; margin-bottom: 2rem; }
+.logo { font-size: 2rem; font-weight: 900; color: #f59e0b; }
+.logo span { color: #1e293b; }
+.subtitle { font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; }
+.form-title { font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem; }
+.input-field { width: 100%; padding: 0.75rem 1rem; margin-bottom: 1rem; border: 1px solid #e2e8f0; border-radius: 14px; font-size: 0.85rem; outline: none; }
+.input-field:focus { border-color: #f59e0b; }
+.btn { width: 100%; padding: 0.85rem; font-weight: 700; font-size: 0.85rem; border-radius: 14px; border: none; cursor: pointer; }
+.btn-primary { background: #f59e0b; color: #fff; }
+.btn-secondary { background: #1e293b; color: #fff; }
+.switch-text { font-size: 0.75rem; text-align: center; color: #64748b; margin-top: 1.25rem; }
+.switch-text button { background: none; border: none; color: #f59e0b; font-weight: 600; cursor: pointer; text-decoration: underline; }
+.hidden { display: none !important; }
