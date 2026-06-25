@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SociaBuzz Clone - Dashboard</title>
+    <link rel="stylesheet" href="src/dashboard/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-nav">
+            <h1 id="haloNama">Halo, Kreator!</h1>
+            <button id="btnKeluar" class="btn-logout">Keluar</button>
+        </div>
+
+        <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; background:#fff; padding:1rem; border-radius:15px; border: 1px solid #e2e8f0;">
+            <a href="src/dashboard/dashboard.html" style="text-decoration:none; color:#f59e0b; font-weight:700; font-size:0.9rem;">🏠 Dashboard Utama</a>
+            <a href="src/pengaturan/settings.html" style="text-decoration:none; color:#475569; font-weight:600; font-size:0.9rem;">⚙️ Pengaturan Profil</a>
+            <a href="src/pengaturan/withdraw.html" style="text-decoration:none; color:#ef4444; font-weight:600; font-size:0.9rem;">💸 Tarik Saldo</a>
+        </div>
+
+        <div class="saldo-card">
+            <div>
+                <p>Total Pendapatan Bersih (Saldo QRIS)</p>
+                <h2 id="txtSaldo">Rp 0</h2>
+            </div>
+            <button id="btnLihatProfil" class="btn-view">Lihat Halaman Publik ↗</button>
+        </div>
+
+        <div class="main-grid">
+            <div class="box">
+                <h3 class="box-title">Tambah Tautan (Link-in-Bio)</h3>
+                <form id="formTambahLink">
+                    <input type="text" id="linkJudul" placeholder="Judul Link (cth: Instagram)" required class="input-style">
+                    <input type="url" id="linkUrl" placeholder="URL Tujuan (https://...)" required class="input-style">
+                    <button type="submit" class="btn-add">Tambahkan Tautan</button>
+                </form>
+                <div id="listLink" class="list-wrapper"></div>
+            </div>
+
+            <div class="box">
+                <h3 class="box-title">Riwayat Dukungan Masuk</h3>
+                <div id="listDonasi" class="list-wrapper"></div>
+            </div>
+        </div>
+    </div>
+    <script src="src/dashboard/dashboard.js"></script>
+</body>
+</html>
